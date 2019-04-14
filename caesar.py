@@ -1,6 +1,6 @@
 from helpers import alphabet_position, rotate_character
 
-def rotate_string(text, rot):
+def rotate_string(rot, text):
     new_natos = ""
     natos = "abcdefghijklmnopqrstuvwxyz"
     upper_natos = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -23,7 +23,7 @@ def main():
     rotate = int(input("Rotate by: \n"))
     # print(rotate)
     #print(encrypt(string, int(argv[1])))
-    print(rotate_string(string, rotate))
+    print(rotate_string( rotate,string))
 
 if __name__ == "__main__":
     main()

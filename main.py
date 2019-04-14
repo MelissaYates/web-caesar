@@ -11,42 +11,49 @@ form = """
 <html>
     <head>
         <style>
-            form{
+            form{{
                 background-color: #eee;
                 padding: 20px;
                 margin: 0 auto;
                 width: 540px;
                 font: 16px sans-serif;
                 border-radius: 10px;
-            }
-            #textarea{
+            }}
+            textarea{{
                 margin: 30px 0px 10px 0px;
                 width: 540px;
                 height: 120px;
-            }
+            }}
         </style>
     </head>
     <body>
         <form action="" method="post">
-            <label for="Rotation">Rotate by:</label>
-            <input id="Rotation" type="text" name="rot" placeholder = "0">
-            <input type="textarea" id= "textarea" name ="text">
+            <label for="rot">Rotate by:</label>
+                <input id="rot" type="text" name="nm_rot" placeholder = "0">
+            <br>
+            <textarea rows = "5" cols = "50" name = "textarea_value" type = "text" placeholder = "Enter Message to Encrypt">
+            {0} 
+         </textarea>
+         <br>
             <input type="submit" name= "Submit Query" value="Submit Query">
         </form>
     </body>
 </html>
 
 """
-@app.route("/", methods= ["POST"])
-def encrypt(rot, text):
+
+@app.route("/", methods = ["POST"])
+def encrypt():
+    rot = int(request.form['rot'])
+    text = request.form['textarea_value']
     encrypt_text = rotate_string(rot,text)
-    return "<h1>" + encrypted_text + "</h1>"
+    return form.format(encrypt_text)
 
 @app.route("/")
 def index():
-    return form
+    return form.format("")
 
-@app.route("/hello", methods=["POST"])
+@app.route("/hello", methods =["POST"])
 def hello():
     first_name = request.form["first_name"]
     return "<h1>Hello, " + first_name + "</h1>"
