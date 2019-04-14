@@ -20,7 +20,7 @@ form = """
                 border-radius: 10px;
             }}
             textarea{{
-                margin: 30px 0px 10px 0px;
+                margin: 10px 0px;
                 width: 540px;
                 height: 120px;
             }}
@@ -31,7 +31,7 @@ form = """
             <label for="rot">Rotate by:</label>
                 <input id="rot" type="text" name="nm_rot" placeholder = "0">
             <br>
-            <textarea rows = "5" cols = "50" name = "textarea_value" type = "text" placeholder = "Enter Message to Encrypt">
+            <textarea name = "textarea_value" type = "text" placeholder = "Enter Message to Encrypt">
             {0} 
          </textarea>
          <br>
